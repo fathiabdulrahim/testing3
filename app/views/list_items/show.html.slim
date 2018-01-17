@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong List:
+  = @list_item.list_id
+p
+  strong Title:
+  = @list_item.title
+p
+  strong Deleted at:
+  = @list_item.deleted_at
+
+=> link_to 'Edit', edit_list_item_path(@list_item)
+'|
+=< link_to 'Back', list_items_path

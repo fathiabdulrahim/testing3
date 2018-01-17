@@ -1,0 +1,4 @@
+= simple_form_for @list_item do |f|
+  = f.input :title
+  = f.input :list_id, input_html: {value: params[:list_id]}, as: :hidden if params[:action] == 'new'
+  = f.button :submit, class: "btn btn-primary"

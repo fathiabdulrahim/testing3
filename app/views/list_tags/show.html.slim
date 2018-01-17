@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Tag:
+  = @list_tag.tag_id
+p
+  strong List item:
+  = @list_tag.list_item_id
+p
+  strong Deleted at:
+  = @list_tag.deleted_at
+
+=> link_to 'Edit', edit_list_tag_path(@list_tag)
+'|
+=< link_to 'Back', list_tags_path

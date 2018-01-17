@@ -1,0 +1,4 @@
+= simple_form_for @list_tag do |f|
+  = f.association :tag
+  = f.input :list_item_id, as: :hidden
+  = f.button :submit, class: "btn btn-primary"

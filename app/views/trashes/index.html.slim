@@ -1,0 +1,37 @@
+h1 Trashes
+.row
+  .col-md-8
+
+    ul.nav.nav-tabs
+      li.nav-item
+        a.nav-link.active data-toggle="tab" href="#home"  List
+      li.nav-item
+        a.nav-link data-toggle="tab" href="#profile"  List Item
+      li.nav-item
+        a.nav-link data-toggle="tab" href="#tag"  List Item Tag
+
+    #myTabContent.tab-content
+      #home.tab-pane.fade.show.active
+        ul.list-group
+          - @lists.each do |list|
+            li.list-group-item.d-flex.justify-content-between.align-items-center
+              = list.title
+              .btn-group.float-right
+                = link_to 'Restore', list_path(id: list.id, type: "restore"), class: "btn btn-primary", method: :put
+      #profile.tab-pane.fade
+        ul.list-group
+          - @list_items.each do |list|
+            li.list-group-item.d-flex.justify-content-between.align-items-center
+              = list.title
+              .btn-group.float-right
+                = link_to 'Restore', list_item_path(id: list.id, type: "restore"), class: "btn btn-primary", method: :put
+      #tag.tab-pane.fade
+
+        ul.list-group
+          - @tags.each do |list|
+            li.list-group-item
+              span class="badge badge-secondary" 
+                = list.tag.name
+              |   from list item #{list.list_item.title}
+              .btn-group.float-right
+                = link_to 'Restore', list_tag_path(id: list.id, type: "restore"), class: "btn btn-primary", method: :put

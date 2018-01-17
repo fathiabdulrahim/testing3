@@ -1,0 +1,4 @@
+- if object.errors.any?
+  | $('#modal').html("#{j render 'form'}");
+- else
+  | $('#modal').modal('hide');

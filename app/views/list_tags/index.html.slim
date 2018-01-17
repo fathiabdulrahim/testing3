@@ -1,0 +1,25 @@
+h1 Listing list_tags
+
+table
+  thead
+    tr
+      th Tag
+      th List item
+      th Deleted at
+      th
+      th
+      th
+
+  tbody
+    - @list_tags.each do |list_tag|
+      tr
+        td = list_tag.tag_id
+        td = list_tag.list_item_id
+        td = list_tag.deleted_at
+        td = link_to 'Show', list_tag
+        td = link_to 'Edit', edit_list_tag_path(list_tag)
+        td = link_to 'Destroy', list_tag, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New List tag', new_list_tag_path
